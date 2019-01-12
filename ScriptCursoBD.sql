@@ -40,35 +40,12 @@ references cliente(idCliente)
 );
 
 insert into cliente values(null, 'Joao','M','joao@ig.com','98547-6');
-insert into cliente values(null, 'Carlos','M','carlos@terra.com','57684-6');
-insert into cliente values(null, 'Ana','F','ana@globo.com','78546-6');
-insert into cliente values(null, 'Jorge','M','jorge@ig.com','12457-6');
 insert into cliente values(null, 'Clara','F',null,'75486-6');
-insert into cliente values(null, 'Celia','F','joao@terra.com','87542-6');
-
-select *from cliente;
 
 insert into endereco values(null,'Rua A','Centro','B. Horizonte','MG',4);
-insert into endereco values(null,'Rua B','Centro','Uberlandia','MG',3);
-insert into endereco values(null,'Rua C','Luizote','Uberlandia','MG',2);
-insert into endereco values(null,'Rua D','Laranjeira','Uberlandia','MG',1);
-insert into endereco values(null,'Rua F','Centro','Rio de Janeiro','RJ',5);
-insert into endereco values(null,'Rua G','Niteroi','Rio de Janeiro','RJ',6);
-
-select * from endereco;
 
 insert into telefone values(null,'CEL','992434845',1);
-insert into telefone values(null,'CEL','992424758',3);
-insert into telefone values(null,'COM','324578695',5);
-insert into telefone values(null,'RES','303245678',2);
-insert into telefone values(null,'CEL','884756952',1);
-insert into telefone values(null,'COM','325457889',2);
-insert into telefone values(null,'RES','554789656',5);
-insert into telefone values(null,'CEL','758469878',3);
-insert into telefone values(null,'COM','330314578',3);
-insert into telefone values(null,'RES','325478695',5);
 
-select * from telefone;
 
 /* SELECAO, PROJECAO E JUNCAO */
 
@@ -271,13 +248,29 @@ RENAME PESSOA;
 -- CRIANDO OUTRA TABELA
 
 CREATE TABLE TIME(
-IDTIME INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+IDTIME INT NOT NULL AUTO_INCREMENT,
 TIME VARCHAR(30),
 ID_PESSOA VARCHAR(30)
 );
+
+-- ADICIONANDO CHAVE PRIMARIA
+
+ALTER TABLE TIME ADD PRIMARY KEY (IDTIME);
 
 -- ADICIONANDO CHAVE ESTRANGEIRA
 
 ALTER TABLE TIME 
 ADD FOREIGN KEY (ID_PESSOA)
 REFERENCES PESSOA(COLUNA1);
+
+-- ADICIONANDO CHAVE PRIMARIA NOMEADA "CONSTRANINT
+
+ALTER TABLE TIME ADD CONSTRAINT PK_TIME PRIMARY KEY (IDTIME);
+
+-- ADICIONANDO CHAVE ESTRANGEIRA
+
+ALTER TABLE TIME ADD CONSTRAINT FK_TIME_PESSOA FOREIGN KEY (ID_PESSOA)
+REFERENCES PESSOA(COLUNA1);
+
+
+/* DICIONARIO DE DADOS */
