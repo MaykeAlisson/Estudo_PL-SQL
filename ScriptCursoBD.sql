@@ -390,3 +390,7 @@ BEGIN
     
 END
 $
+
+DELIMITER ;
+
+ /* TRIGGER DE AUDITORIA */
