@@ -10,7 +10,7 @@ use estudo;
 /* E A CHAVE PRIMARIA DE UMA TABELA, QUE VAI ATE
 OUTRA TABELA FAZER REFERENCIA */
 
-/* EM RELACIONAMENTOS 1 X 1 A CHAVE ESTRAMGEIRA 
+/* EM RELACIONAMENTOS 1 X 1 A CHAVE ESTRANGEIRA 
 FICA NA TABELA MAIS FRACA */
 
 create table cliente(
@@ -96,7 +96,7 @@ on cliente.idCliente = endereco.id_cliente
 inner join telefone 
 on cliente.idCliente = telefone.id_cliente;
 
-/* DEFINI APELIDO PARA CADA TABELAS (A PALAVRA AS E OPSIONAL) */
+/* DEFINI APELIDO PARA CADA TABELAS (A PALAVRA AS E OPCIONAL) */
 select c.nome, c.sexo, e.bairro, e.cidade, t.tipo, t.numero
 from cliente as c
 inner join endereco as e
